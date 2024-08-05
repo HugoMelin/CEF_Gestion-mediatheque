@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion_bibliothèque</title>
+</head>
+<body>
+    <h1>Gestion Bilbiothèque</h1>
+    <a href="/connexion">
+        <button>Je suis bibliothèquaire</button>
+    </a>
+
+    <h2>Nos livres</h2>
+    {% if livres|length == 0 %}
+        <p>Nous n'avons plus de livres disponible.</p>
+    {% else %}
+        <table>
+            <tr>
+                <th>Nom</th>
+                <th>Auteur</th>
+            </tr>
+            {% for i in livres %}
+                {% if i.disponible %}
+                    <tr>
+                        <td>{{ i.nom }}</td>
+                        <td>{{ i.auteur }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <h2>Nos CDs</h2>
+    {% if cds|length == 0 %}
+        <p>Nous n'avons plus de CD disponible.</p>
+    {% else %}
+        <table>
+            <tr>
+                <td><h4>Nom</h4></td>
+                <td><h4>Artiste</h4></td>
+            </tr>
+            {% for i in cds %}
+                {% if i.disponible %}
+                    <tr>
+                        <td>{{ i.nom }}</td>
+                        <td>{{ i.artiste }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <h2>Nos DVDs</h2>
+    {% if dvds|length == 0 %}
+        <p>Nous n'avons plus de CD disponible.</p>
+    {% else %}
+        <table>
+            <tr>
+                <td><h4>Nom</h4></td>
+                <td><h4>Réalisateur</h4></td>
+            </tr>
+            {% for i in dvds %}
+                {% if i.disponible %}
+                    <tr>
+                        <td>{{ i.nom }}</td>
+                        <td>{{ i.realisateur }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <h2>Nos Jeux de plateaux</h2>
+    {% if jeuxplateux|length == 0 %}
+        <p>Nous n'avons plus de CD disponible.</p>
+    {% else %}
+        <table>
+            <tr>
+                <td><h4>Nom</h4></td>
+                <td><h4>Créateur</h4></td>
+            </tr>
+            {% for i in jeuxplateux %}
+                <tr>
+                    <td>{{ i.nom }}</td>
+                    <td>{{ i.createur }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>

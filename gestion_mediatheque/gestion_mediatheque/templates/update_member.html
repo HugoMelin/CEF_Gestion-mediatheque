@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier membre</title>
+</head>
+<body>
+    <button><a href="{% url 'bibliothequaire' %}">Retour</a></button>
+    <h1>Modifier un membre</h1>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" id="nom" value="{{ membre.nom }}" required>
+        <label for="nbEmprunt">Nombre d'emprunt</label>
+        <input type="number" name="nbEmprunt" id="nbEmprunt" value="{{ membre.nbEmprunt }}" max="3" required>
+        <input type="submit" value="Modifier le membre">
+    </form>
+</body>
+</html>

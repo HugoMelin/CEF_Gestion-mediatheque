@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Emprunt de "{{ media.nom }}"</title>
+</head>
+<body>
+    <button><a href="{% url 'bibliothequaire' %}">Retour</a></button>
+    <h1>Emprunt de "{{ media.nom }}"</h1>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        <select name="emprunteur" id="emprunteur">
+            {% for membre in membres%}
+                {% if not membre.bloque %}
+                    <option value="{{ membre.id }}">{{ membre.nom }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <input type="date" name="date" id="date" value="{{ aujourdhui }}" max="{{ aujourdhui }}">
+        <input type="submit" value="Créer l'emprunt">
+    </form>
+</body>
+</html>

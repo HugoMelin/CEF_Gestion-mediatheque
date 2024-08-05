@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Jeux Plateaux</title>
+</head>
+<body>
+    <button><a href="{% url 'bibliothequaire' %}">Retour</a></button>
+    <h1>Modifier un jeux de plateaux</h1>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" id="nom" value="{{ jeuxPlateaux.nom }}" required>
+        <label for="createur">Auteur</label>
+        <input type="text" name="createur" id="createur" value="{{ jeuxPlateaux.createur }}" required>
+        <input type="submit" value="Modifier">
+    </form>
+</body>
+</html>

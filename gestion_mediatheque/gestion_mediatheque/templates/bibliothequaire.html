@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion Bibliothequaire</title>
+</head>
+<body>
+    <button><a href="{% url 'accueil' %}">Accueil</a></button>
+    <button><a href="{% url 'deconnexion' %}">Déconnexion</a></button>
+    <h1>Gestion Médiathèque</h1>
+
+    <h2>Gestion des membres</h2>
+    <form action="{% url 'createmember' %}" method="post">
+        {% csrf_token %}
+        <label for="newUserName">Nouvel utilisateur</label>
+        <input type="text" name="newUserName" id="newUserName" required>
+        <button type="submit">Créer utilisateur</button>
+    </form>
+    <table>
+        {% if membres|length > 0%}
+        <tr>
+            <th>Utilisateur</th>
+            <th>Nombre d'emprunts</th>
+            <th>Peut emprunter</th>
+            <th>Actions</th>
+        </tr>
+        {% endif %}
+        {% for i in membres %}
+        <tr>
+            <td>{{ i.nom }}</td>
+            <td>{{ i.nbEmprunt }}</td>
+            {% if i.bloque %}
+                <td>Non</td>
+            {% else %}
+                <td>Oui</td>
+            {% endif %}
+            <td><button type="submit"><a href="{% url 'supprimer_membre' id=i.id %}">Supprimer utilisateur</a></button></td>
+            <td><button type="submit"><a href="{% url 'update_member' id=i.id %}">Mettre à jour utilisateur</a></button></td>
+        </tr>
+        {% empty %}
+            <p>Il n'y a pas d'utilisateur pour le moment</p>
+        {% endfor %}
+    </table>
+
+    <h2>Gestion des médias</h2>
+
+    <button><a href="{% url 'add_livre' %}">Ajouter livre</a></button>
+    <button><a href="{% url 'add_cd' %}">Ajouter CD</a></button>
+    <button><a href="{% url 'add_dvd' %}">Ajouter DVD</a></button>
+    <button><a href="{% url 'add_jeuxplateaux' %}">Ajouter Jeux de plateaux</a></button>
+
+    <h3>Livres</h3>
+    <table>
+        {% if livres|length > 0%}
+        <tr>
+            <th>Nom</th>
+            <th>Auteur</th>
+            <th>Disponible</th>
+            <th>Date d'emprunt</th>
+            <th>Emprunteur</th>
+            <th>Actions</th>
+        </tr>
+        {% endif %}
+        {% for i in livres %}
+        <tr>
+            <td>{{ i.nom }}</td>
+            <td>{{ i.auteur }}</td>
+            <td>
+                {% if i.disponible %}
+                    Oui
+                {% else %}
+                    Non
+                {% endif %}
+            </td>
+            <td>
+                {% if i.dateEmprunt %}
+                    {{ i.dateEmprunt }}
+                {% endif %}
+            </td>
+            <td>
+                {% if i.idEmprunteur %}
+                    {{ i.idEmprunteur.nom }}
+                {% endif %}
+            </td>
+            <td><button type="submit"><a href="{% url 'supprimer_livre' id=i.id %}">Supprimer</a></button></td>
+            <td><button type="submit"><a href="{% url 'update_livre' id=i.id %}">Mettre à jour</a></button></td>
+            {% if i.disponible %}
+                <td><button type="submit"><a href="{% url 'emprunt' id=i.id %}">Emprunter</button></td>
+            {% else %}
+                <td><button type="submit"><a href="{% url 'rentrer' id=i.id %}">Rentrer</button></td>
+            {% endif %}
+        </tr>
+        {% empty %}
+            <p>Il n'y a pas de livre actuellement</p>
+        {% endfor %}
+    </table>
+
+    <h3>CD</h3>
+    <table>
+        {% if cds|length > 0%}
+        <tr>
+            <th>Nom</th>
+            <th>Artiste</th>
+            <th>Disponible</th>
+            <th>Date d'emprunt</th>
+            <th>Emprunteur</th>
+            <th>Actions</th>
+        </tr>
+        {% endif %}
+        {% for i in cds %}
+        <tr>
+            <td>{{ i.nom }}</td>
+            <td>{{ i.artiste }}</td>
+            <td>
+                {% if i.disponible %}
+                    Oui
+                {% else %}
+                    Non
+                {% endif %}
+            </td>
+            <td>
+                {% if i.dateEmprunt %}
+                    {{ i.dateEmprunt }}
+                {% endif %}
+            </td>
+            <td>
+                {% if i.idEmprunteur %}
+                    {{ i.idEmprunteur.nom }}
+                {% endif %}
+            </td>
+            <td><button type="submit"><a href="{% url 'supprimer_cd' id=i.id %}">Supprimer</a></button></td>
+            <td><button type="submit"><a href="{% url 'update_cd' id=i.id %}">Mettre à jour</a></button></td>
+            {% if i.disponible %}
+                <td><button type="submit"><a href="{% url 'emprunt' id=i.id %}">Emprunter</button></td>
+            {% else %}
+                <td><button type="submit"><a href="{% url 'rentrer' id=i.id %}">Rentrer</button></td>
+            {% endif %}
+        </tr>
+        {% empty %}
+            <p>Il n'y a pas de CD actuellement</p>
+        {% endfor %}
+    </table>
+
+    <h3>DVD</h3>
+    <table>
+        {% if dvds|length > 0%}
+        <tr>
+            <th>Nom</th>
+            <th>Réalisateur</th>
+            <th>Disponible</th>
+            <th>Date d'emprunt</th>
+            <th>Emprunteur</th>
+            <th>Actions</th>
+        </tr>
+        {% endif %}
+        {% for i in dvds %}
+        <tr>
+            <td>{{ i.nom }}</td>
+            <td>{{ i.realisateur }}</td>
+            <td>
+                {% if i.disponible %}
+                    Oui
+                {% else %}
+                    Non
+                {% endif %}
+            </td>
+            <td>
+                {% if i.dateEmprunt %}
+                    {{ i.dateEmprunt }}
+                {% endif %}
+            </td>
+            <td>
+                {% if i.idEmprunteur %}
+                    {{ i.idEmprunteur.nom }}
+                {% endif %}
+            </td>
+            <td><button type="submit"><a href="{% url 'supprimer_dvd' id=i.id %}">Supprimer</a></button></td>
+            <td><button type="submit"><a href="{% url 'update_dvd' id=i.id %}">Mettre à jour</a></button></td>
+            {% if i.disponible %}
+                <td><button type="submit"><a href="{% url 'emprunt' id=i.id %}">Emprunter</button></td>
+            {% else %}
+                <td><button type="submit"><a href="{% url 'rentrer' id=i.id %}">Rentrer</button></td>
+            {% endif %}
+        </tr>
+        {% empty %}
+            <p>Il n'y a pas de DVD actuellement</p>
+        {% endfor %}
+    </table>
+
+    <h3>Jeux de Plateaux</h3>
+    <table>
+        {% if jeuxplateaux|length > 0%}
+        <tr>
+            <th>Nom</th>
+            <th>Créateur</th>
+            <th>Actions</th>
+        </tr>
+        {% endif %}
+        {% for i in jeuxplateaux %}
+        <tr>
+            <td>{{ i.nom }}</td>
+            <td>{{ i.createur }}</td>
+            <td><button type="submit"><a href="{% url 'supprimer_jeuxplateaux' id=i.id %}">Supprimer</a></button></td>
+            <td><button type="submit"><a href="{% url 'update_jeuxplateaux' id=i.id %}">Mettre à jour</a></button></td>
+        </tr>
+        {% empty %}
+            <p>Il n'y a pas de Jeux de Plateaux actuellement</p>
+        {% endfor %}
+    </table>
+</body>
+</html>

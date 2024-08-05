@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter Jeux de Plateaux</title>
+</head>
+<body>
+    <h1>Ajouter un Jeux de Plateaux </h1>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ addjeuxplateaux }}
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>

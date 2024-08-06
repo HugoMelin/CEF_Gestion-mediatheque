@@ -1,0 +1,249 @@
+[
+  {
+    "model": "gestion_mediatheque.Bibliothequaire",
+    "pk": 1,
+    "fields": {
+      "username": "Bibliothequaire",
+      "password": "pbkdf2_sha256$720000$Q3jhcR0IjEAthHxLSRn92p$GBv4gPQTcBVwhVJeqRZCmfc2lLzMil88vZIfA24hy7c="
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Membre",
+    "pk": 1,
+    "fields": {
+      "nom": "Alice Dupont",
+      "nbEmprunt": 1,
+      "bloque": false
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Membre",
+    "pk": 2,
+    "fields": {
+      "nom": "Bob Martin",
+      "nbEmprunt": 1,
+      "bloque": false
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Membre",
+    "pk": 3,
+    "fields": {
+      "nom": "Charlie Brown",
+      "nbEmprunt": 3,
+      "bloque": true
+    }
+  },
+    {
+    "model": "gestion_mediatheque.Media",
+    "pk": 1,
+    "fields": {
+      "nom": "1984",
+      "dateEmprunt": "2024-08-05",
+      "idEmprunteur": 1,
+      "disponible": false
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Media",
+    "pk": 2,
+    "fields": {
+      "nom": "Le Petit Prince",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Media",
+    "pk": 3,
+    "fields": {
+      "nom": "Harry Potter à l'école des sorciers",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Media",
+    "pk": 4,
+    "fields": {
+      "nom": "Thriller",
+      "dateEmprunt": "2024-08-05",
+      "idEmprunteur": 2,
+      "disponible": false
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Media",
+    "pk": 5,
+    "fields": {
+      "nom": "The Dark Side of the Moon",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Media",
+    "pk": 6,
+    "fields": {
+      "nom": "21",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Media",
+    "pk": 7,
+    "fields": {
+      "nom": "Inception",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Media",
+    "pk": 8,
+    "fields": {
+      "nom": "Le Seigneur des Anneaux",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Media",
+    "pk": 9,
+    "fields": {
+      "nom": "Parasite",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Livre",
+    "pk": 1,
+    "fields": {
+      "nom": "1984",
+      "auteur": "George Orwell",
+      "dateEmprunt": "2024-08-05",
+      "disponible": false
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Livre",
+    "pk": 2,
+    "fields": {
+      "nom": "Le Petit Prince",
+      "auteur": "Antoine de Saint-Exupéry",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.Livre",
+    "pk": 3,
+    "fields": {
+      "nom": "Harry Potter à l'école des sorciers",
+      "auteur": "J.K. Rowling",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.CD",
+    "pk": 4,
+    "fields": {
+      "nom": "Thriller",
+      "artiste": "Michael Jackson",
+      "dateEmprunt": "2024-08-05",
+      "idEmprunteur": null,
+      "disponible": false
+    }
+  },
+  {
+    "model": "gestion_mediatheque.CD",
+    "pk": 5,
+    "fields": {
+      "nom": "The Dark Side of the Moon",
+      "artiste": "Pink Floyd",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.CD",
+    "pk": 6,
+    "fields": {
+      "nom": "21",
+      "artiste": "Adele",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.DVD",
+    "pk": 7,
+    "fields": {
+      "nom": "Inception",
+      "realisateur": "Christopher Nolan",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.DVD",
+    "pk": 8,
+    "fields": {
+      "nom": "Le Seigneur des Anneaux",
+      "realisateur": "Peter Jackson",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.DVD",
+    "pk": 9,
+    "fields": {
+      "nom": "Parasite",
+      "realisateur": "Bong Joon-ho",
+      "dateEmprunt": null,
+      "idEmprunteur": null,
+      "disponible": true
+    }
+  },
+  {
+    "model": "gestion_mediatheque.JeuxPlateaux",
+    "pk": 1,
+    "fields": {
+      "nom": "Catan",
+      "createur": "Klaus Teuber"
+    }
+  },
+  {
+    "model": "gestion_mediatheque.JeuxPlateaux",
+    "pk": 2,
+    "fields": {
+      "nom": "Pandemic",
+      "createur": "Matt Leacock"
+    }
+  },
+  {
+    "model": "gestion_mediatheque.JeuxPlateaux",
+    "pk": 3,
+    "fields": {
+      "nom": "Carcassonne",
+      "createur": "Klaus-Jürgen Wrede"
+    }
+  }
+]
